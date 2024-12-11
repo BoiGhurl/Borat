@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Prob5_The_Anikanik_Girls
+from .models import prob5_the_anikanik_girls
 
 class SignUpForm(UserCreationForm):
 	email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}))
@@ -43,5 +43,5 @@ class AddRecordForm(forms.ModelForm):
 	hirono_owned = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Hirono Owned", "class":"form-control"}), label="")
 	monthly_expense_on_collectible = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Monthly Expense on Collectible", "class":"form-control"}), label="")
 	class Meta:
-		model = Prob5_the_anikanik_girls
+		model = prob5_the_anikanik_girls
 		exclude = ("user",)

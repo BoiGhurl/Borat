@@ -2,7 +2,7 @@ from django.db import models
 
 
 
-class Prob5_the_anikanik_girls(models.Model):
+class prob5_the_anikanik_girls(models.Model):
 		created_at = models.DateTimeField(auto_now_add=True)
 		first_name = models.CharField(max_length=50)
 		gc_name = models.CharField(max_length=50)

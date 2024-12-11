@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm, AddRecordForm
-from .models import Prob5_the_anikanik_girls
+from .models import prob5_the_anikanik_girls
 
 def home(request):
-	records = Prob5_the_anikanik_girls.objects.all()
+	records = prob5_the_anikanik_girls.objects.all()
 
 
 	# Check to see if logging in
@@ -52,7 +52,7 @@ def register_user(request):
 def prob5_the_anikanik_girls_record(request, pk):
 	if request.user.is_authenticated:
 			#Look Up Records
-			prob5_the_anikanik_girls_record = Prob5_the_anikanik_girls.objects.get(id=pk)
+			prob5_the_anikanik_girls_record = prob5_the_anikanik_girls.objects.get(id=pk)
 			return render(request, 'record.html', {'prob5_the_anikanik_girls_record':prob5_the_anikanik_girls_record})
 	else:
 		messages.success(request, "More gastos on its way!")
@@ -61,7 +61,7 @@ def prob5_the_anikanik_girls_record(request, pk):
 
 def delete_record(request, pk):
 	if request.user.is_authenticated:
-		delete_it = Prob5_the_anikanik_girls.objects.get(id=pk)
+		delete_it = prob5_the_anikanik_girls.objects.get(id=pk)
 		delete_it.delete()
 		messages.success(request, "Congrats, gastador!")
 		return redirect('home')
