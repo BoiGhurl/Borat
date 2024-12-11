@@ -9,6 +9,6 @@ databse = mysql.connector.connect(
 
 cursorObject = databse.cursor()
 
-cursorObject.execute("CREATE DATABASE FINAL PROJECT")
+cursorObject.execute("CREATE DATABASE Borat")
 
 print("All Done!")
