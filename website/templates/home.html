@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+{% if user.is_authenticated %}
+
+<h1>SUSPECT, Sino Pinakamagastos sa Anik-Anik</h1>
+
+<table class="table table-light table-hover table-bordered table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">GC name</th>
+      <th scope="col">Favorite Collection</th>
+      <th scope="col">Favorite Collectible</th>
+      <th scope="col">Hacipupu Owned</th>
+      <th scope="col">Zsiga Owned</th>
+      <th scope="col">Hirono Owned</th>
+      <th scope="col">Monthly Expense on Collectibles</th>
+      <th scope="col">ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+{% if records %}
+    {% for record in records %}
+      <tr>
+        <td>{{ record.first_name }}</td>
+        <td>{{ record.gc_name }}</td>
+        <td>{{ record.favorite_collection }}</td>
+        <td>{{ record.favorite_collectible }}</td>
+        <td>{{ record.hacipupu_owned }}</td>
+        <td>{{ record.zsiga_owned }}</td>
+        <td>{{ record.hirono_owned }}</td>
+        <td>{{ record.monthly_expense_on_collectible }}</td>
+        <td>{{ record.created_at }}</td>
+        <td><a href="{% url 'Prob5_the_anikanik_girls' record.id %}">{{ record.id }}</a></td>
+      </tr>
+    {% endfor %}
+
+{% endif %}
+
+      </tbody>
+    </table>
+
+{% else %}
+
+<div class="col-md-6 offset-md-3">
+<h1>Login</h1>
+<br/>
+<form method="POST" action="{% url 'home' %}">
+  {% csrf_token %}
+  
+  <div class="mb-3">
+    
+    <input type="text" class="form-control" name="username", placeholder="Username" required>
+    
+  </div>
+  <div class="mb-3">
+    
+    <input type="password" class="form-control" name="password", placeholder="Password" required>
+  </div>
+  <br/>
+  <button type="submit" class="btn btn-secondary">Login</button>
+
+</form>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+  <div class="card-header">
+    {{ prob5_the_anikanik_girls_record.first_name }}
+  </div>
+  <div class="card-body">
+    <strong>GC name:  </strong><p class="card-text">{{ prob5_the_anikanik_girls_record.gc_name }}</p>
+    <strong>Favorite Collectible:  </strong><p class="card-text">{{ prob5_the_anikanik_girls_record.favorite_collectible }}</p>
+    <strong>Favorite Collection:  </strong><p class="card-text">{{ prob5_the_anikanik_girls_record.favorite_collection}}</p>
+    <strong>Hacipupu Owned:  </strong><p class="card-text">{{ prob5_the_anikanik_girls_record.hacipupu_owned}}</p>
+    <strong>Zsiga Owned:  </strong><p class="card-text">{{ prob5_the_anikanik_girls_record.zsiga_owned}}</p>
+    <strong>Hirono Owned:  </strong><p class="card-text">{{ prob5_the_anikanik_girls_record.hirono_owned}}</p>
+    <strong>Monthly Expense on Collectible:  </strong><p class="card-text">{{ prob5_the_anikanik_girls_record.monthly_expense_on_collectible}}</p>
+    <strong>Created at:  </strong><p class="card-text">{{ prob5_the_anikanik_girls_record.created_at }}</p>
+    <strong>ID#:  </strong><p class="card-text">{{ prob5_the_anikanik_girls_record.id }}</p>
+    
+   
+  </div>
+</div>
+    
+<br/>
+<a href="{% url 'home' %}" class="btn btn-success">Return</a>
+
+<a href="{% url 'delete_record' prob5:_the_anik-anik_girls_record.id %}" class="btn btn-danger">Delete</a>
+
+<a href="{% url 'update_record' prob5:_the_anik-anik_girls_record.id %}" class="btn btn-secondary">Update Record</a>
+
+
+
+{% endblock %}
